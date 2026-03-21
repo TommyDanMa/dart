@@ -39,6 +39,12 @@ forge test
 ```
 For now, explore the whitepaper in /docs/ and the figures in /figures/.
 
+### Figures (extracted from whitepaper)
+- [FIG. 1: System Architecture](figures/fig1-system-architecture.png)
+- [FIG. 2: Agent Assignment Flow](figures/fig2-agent-assignment.png)
+- [FIG. 3: Revocation Process](figures/fig3-revocation-process.png)
+- [FIG. 4: Multi-Domain Guardians](figures/fig4-multi-domain.png)
+
 ## License
 
 <img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg" alt="License: AGPL v3">
