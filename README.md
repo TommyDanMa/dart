@@ -38,7 +38,9 @@ forge build
 forge test
 ```
 For now, explore the whitepaper in /docs/ and the figures in /figures/.
-## License
+
+## License
+
 <img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg" alt="License: AGPL v3">
 © 2025–2026 TomateDM. Licensed under the GNU Affero General Public License v3.0.
 If this code is ever deployed as a public service (e.g. API for AI agent delegation), the full source must be made available.
@@ -52,5 +54,3 @@ Future (post-TR): Hardware root-of-trust integration, proposal for open standard
 ⭐ Star this repo if you're interested in secure delegation for AI agents and blockchain identity systems.
 Contributions, feedback, and ideas are very welcome — especially around tests, documentation, or domain-specific extensions.
 This project is part of my Treball de Recerca (Batxillerat) — developing a hybrid blockchain + hardware solution to prevent authorization drift and credential abuse in the era of autonomous AI agents (2026+).
-
-## License
