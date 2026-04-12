@@ -1,10 +1,10 @@
-# Delegated Authority Revocation System (DARS)
+# Delegated Authority Revocation Technology (DART)
 
 **TL;DR**  
 Users assign cryptographic agents on-chain (e.g. AI agents, proxies, advisors) for specific domains (finance, voting, civic, defense, etc.). A designated **Revocation Guardian** (trusted institution per domain) can **only revoke** those delegations - never assign new ones or act on behalf of the user. This design preserves full user autonomy while providing an audited emergency failsafe against key loss, compromise, or rogue agents.
 
 ## Why this project?
-Typical blockchain delegation systems allow the user (principal) to revoke an agent's authority… unless the **user's own private key is lost, stolen, or compromised**. In that case, a malicious or compromised agent can continue acting indefinitely - a critical failure mode in high-stakes domains (financial loss, fraudulent votes, unauthorized military orders, etc.).
+Typical blockchain delegation technologies allow the user (principal) to revoke an agent's authority… unless the **user's own private key is lost, stolen, or compromised**. In that case, a malicious or compromised agent can continue acting indefinitely - a critical failure mode in high-stakes domains (financial loss, fraudulent votes, unauthorized military orders, etc.).
 
 DARS solves this by introducing a **constrained, auditable revocation-only key** held by a trusted third party (the Guardian), without giving that party any power to assign agents or impersonate the user.  
 
