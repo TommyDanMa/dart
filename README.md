@@ -51,12 +51,6 @@ For now, explore the whitepaper in /docs/ and the figures in /figures/.
 © 2025–2026 TomateDM. Licensed under the GNU Affero General Public License v3.0.
 If this code is ever deployed as a public service (e.g. API for AI agent delegation), the full source must be made available.
 
-## Roadmap
-
-Q2 2026: First working Solidity contracts + basic tests + testnet deployment
-Q3 2026: Demo video + simulation of revocation in a financial/voting scenario
-Future (post-TR): Hardware root-of-trust integration, proposal for open standard in AI agent IAM
-
 ⭐ Star this repo if you're interested in secure delegation for AI agents and blockchain identity systems.
 Contributions, feedback, and ideas are very welcome — especially around tests, documentation, or domain-specific extensions.
 This project is part of my Treball de Recerca (Batxillerat) — developing a hybrid blockchain + hardware solution to prevent authorization drift and credential abuse in the era of autonomous AI agents (2026+).
