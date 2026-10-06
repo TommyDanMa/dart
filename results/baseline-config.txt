@@ -1,0 +1,36 @@
+# DART TR: baseline experiment configuration and derived summary (Cycle 2A)
+# Captured: 2026-09-16T21:49:56Z
+# Python: 3.9.6 (/Library/Developer/CommandLineTools/usr/bin/python3)
+# Script: analysis/baselines.py (stdlib only)
+# Commit (git rev-parse HEAD at capture time): 540257c2a836f73356dbaf6cdbeff5d338a01bf4
+
+[parameters]
+steps = 0..9 inclusive (10 attempts)
+initial_balance = 100
+amount_per_step = 10
+max_amount_per_action = 10
+t_emergency = 3 (agent compromised and user unavailable from this step)
+long_valid_until = 100 (A, C, D)
+short_valid_until = 5 inclusive (B); no auto-renewal
+variants (C, D): main: revoke_before_step=4, late6: revoke_before_step=6, late8: revoke_before_step=8
+damage = cumulative accepted amount for steps >= t_emergency
+t_revocation = first step rejected as rejected_revoked; delay = t_revocation - t_emergency
+monitor = absent (constant across models)
+units = simulated units and scenario steps; not currency, not chain latency
+
+[models]
+A = user-only revocation; grant=['user']; revoke=['user']; execute_override=[]; emergency_actor=None; valid_until=100
+B = short-lived credential; grant=['user']; revoke=['user']; execute_override=[]; emergency_actor=None; valid_until=5
+C = central administrator; grant=['admin', 'user']; revoke=['admin', 'user']; execute_override=['admin']; emergency_actor=admin; valid_until=100
+D = DART guardian; grant=['user']; revoke=['guardian', 'user']; execute_override=[]; emergency_actor=guardian; valid_until=100
+
+[derived_summary]  # recomputed from the same run that wrote baseline-results.csv
+model,variant,revoke_before_step,t_emergency,t_revocation,delay_steps,t_expiry,accepted_total,balance_final,damage_final
+A,main,N/A,3,N/A,N/A,N/A,100,0,70
+B,main,N/A,3,N/A,N/A,6,60,40,30
+C,main,4,3,4,1,N/A,40,60,10
+C,late6,6,3,6,3,N/A,60,40,30
+C,late8,8,3,8,5,N/A,80,20,50
+D,main,4,3,4,1,N/A,40,60,10
+D,late6,6,3,6,3,N/A,60,40,30
+D,late8,8,3,8,5,N/A,80,20,50

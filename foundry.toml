@@ -1,0 +1,16 @@
+# DART TR prototype. Foundry configuration (Cycle 1A).
+# Toolchain observed on 2026-09-16: forge 1.8.3 (cae51ad458), forge-std v1.16.2.
+# solc is pinned so builds, tests and later gas measurements are reproducible.
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+libs = ["lib"]
+solc = "0.8.37"
+auto_detect_solc = false
+optimizer = false
+# Read-only access to compiled artifacts so the T20 test can inspect the real ABI.
+fs_permissions = [{ access = "read", path = "./out" }]
+
+[fmt]
+line_length = 100

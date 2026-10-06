@@ -1,0 +1,38 @@
+%% Diagrama d'arquitectura del prototip DART (MVP implementat, cicle 3A, 2026-09-17).
+%% Font: src/DARTVault.sol (commit 1a18093; sense canvis fins a HEAD 5eef088).
+%% Identificadors de contracte en anglès, tal com al codi; text explicatiu en català.
+%%
+%% Peu proposat per al TR (l'autor el pot adaptar):
+%% «Figura X. Arquitectura del prototip DART implementat: tres rols (usuari, agent,
+%% guardià) i un únic contracte DARTVault amb saldo simulat. Les fletxes contínues
+%% són les tres úniques funcions que canvien l'estat; les discontínues són crides
+%% del guardià que el contracte rebutja amb un error amb nom. És l'MVP provat en
+%% local (Foundry), no una cartera de producció: no mou ETH ni tokens, no verifica
+%% certificats EIP-712 i no té cap funció de restauració ni d'administració.»
+%%
+%% Renderitzar amb Mermaid CLI o l'editor en línia; no s'ha generat cap imatge aquí.
+
+flowchart LR
+    U["USER<br/>(user, immutable)"]
+    A["AGENT<br/>(delegation.agent)"]
+    G["GUARDIAN<br/>(guardian, immutable)"]
+
+    subgraph V["DARTVault (un sol contracte, no actualitzable)"]
+        direction TB
+        S["Estat<br/>simulatedBalance: uint256<br/>nextNonce: uint256<br/>delegations: mapping(bytes32 => Delegation)"]
+        D["Delegation<br/>agent · allowedRecipient · maxAmountPerAction<br/>validAfter · validUntil · nonce<br/>revoked (false → true, mai al revés) · exists"]
+        S --- D
+    end
+
+    %% Transicions permeses (les tres úniques funcions mutadores de l'ABI; T20)
+    U -->|"createDelegation(agent, recipient, max, validAfter, validUntil)<br/>→ DelegationCreated"| V
+    A -->|"execute(delegationId, recipient, amount)<br/>→ ActionExecuted; simulatedBalance −= amount"| V
+    G -->|"revokeDelegation(delegationId, reasonCode)<br/>→ DelegationRevoked"| V
+    U -->|"revokeDelegation(delegationId, reasonCode)<br/>→ DelegationRevoked"| V
+
+    %% Crides del guardià que el contracte rebutja (contenció; T08, T09, T20)
+    G -. "createDelegation → revert NotUser" .-> V
+    G -. "execute → revert NotAgent" .-> V
+
+    %% Nota: no hi ha cap fletxa de sortida de valor. El saldo és intern i simulat;
+    %% el destinatari és una etiqueta registrada a l'esdeveniment, no una transferència.

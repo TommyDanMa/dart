@@ -1,0 +1,121 @@
+# DART TR: gas report (Cycle 1D)
+# Captured: 2026-09-16T21:07:10Z
+# Command: forge test --match-contract DARTVault --gas-report
+# forge --version:
+#   forge Version: 1.8.3
+#   Commit SHA: cae51ad458f6abb64852b7709eb784352429825d
+#   Build Timestamp: 2026-09-15T10:34:23.361078000Z (1789468463)
+#   Build Profile: dist
+# solc: 0.8.37 (pinned in foundry.toml, auto_detect_solc = false)
+# optimizer (foundry.toml): false
+# evm_version: "osaka" (Foundry default, not overridden)
+# commit (git rev-parse HEAD at capture time; 1C checkpoint, 1D uncommitted): 562dcfd328af012058ea802dcca439126da00c17
+# Units: gas. Not converted to currency. Rows are per contract function across all test calls,
+# including reverted calls, so Min reflects early reverts and Max the full success path.
+
+No files changed, compilation skipped
+
+Ran 69 tests for test/DARTVault.t.sol:DARTVaultTest
+[PASS] test_Constructor_SetsRolesAndBalance() (gas: 31285)
+[PASS] test_Constructor_ZeroInitialBalanceAllowed() (gas: 17346)
+[PASS] test_FailedExecuteKeepsBalance_ThenValidExecuteStillWorks() (gas: 480169)
+[PASS] test_FailedGrantDoesNotIncrementNonceOrEmit_ThenValidGrantUsesNonceZero() (gas: 340217)
+[PASS] test_FailedRevokeKeepsState_ThenAuthorizedRevokeWorks() (gas: 611335)
+[PASS] test_T01_FutureGrantSucceeds() (gas: 229710)
+[PASS] test_T01_IdenticalTermsProduceDistinctIdsAndSuccessiveNonces() (gas: 469436)
+[PASS] test_T01_ImmediatelyActiveGrant() (gas: 231758)
+[PASS] test_T01_PublicMappingGetterMatchesView() (gas: 234545)
+[PASS] test_T01_RecipientEqualToAgentSucceeds() (gas: 231805)
+[PASS] test_T01_RecipientEqualToGuardianSucceeds() (gas: 233817)
+[PASS] test_T01_RecipientEqualToUserSucceeds() (gas: 231818)
+[PASS] test_T01_UserGrant_StoresFieldsIncrementsNonceAndEmits() (gas: 255268)
+[PASS] test_T01_ValidUntilEqualToNowSucceeds() (gas: 229709)
+[PASS] test_T02_RecipientEqualToAgentOnlyReducesSimulatedBalance() (gas: 365658)
+[PASS] test_T02_RecipientEqualToGuardianOnlyReducesSimulatedBalance() (gas: 367744)
+[PASS] test_T02_RecipientEqualToUserOnlyReducesSimulatedBalance() (gas: 363181)
+[PASS] test_T02_ValidActionReducesBalanceAndEmits() (gas: 346306)
+[PASS] test_T03_WrongRecipientIsRejected() (gas: 326116)
+[PASS] test_T04_AmountAboveMaxIsRejected() (gas: 326488)
+[PASS] test_T04_AmountEqualToMaxSucceeds() (gas: 338508)
+[PASS] test_T05_AfterValidUntilIsRejected() (gas: 322783)
+[PASS] test_T05_BeforeValidAfterIsRejected() (gas: 316712)
+[PASS] test_T05_TimestampEqualToValidAfterSucceeds() (gas: 335103)
+[PASS] test_T05_TimestampEqualToValidUntilSucceeds() (gas: 339045)
+[PASS] test_T06_GuardianRevokesActiveDelegation() (gas: 347357)
+[PASS] test_T06_ReasonCodeIsOnlyALabel() (gas: 667396)
+[PASS] test_T06_RevokeExpiredDelegationSucceeds() (gas: 340402)
+[PASS] test_T06_RevokeFutureDelegationSucceeds() (gas: 336136)
+[PASS] test_T06_UserRevokesActiveDelegation() (gas: 345299)
+[PASS] test_T07_AgentExecuteAfterRevokeFailsInWindow() (gas: 459000)
+[PASS] test_T07_FutureRevokedExecuteFailsRevokedBeforeWindowOpens() (gas: 455285)
+[PASS] test_T07_RevokedStaysRevokedAcrossTimeWarps() (gas: 701153)
+[PASS] test_T08_GuardianCannotGrant() (gas: 100954)
+[PASS] test_T08_GuardianCannotGrantToItselfAsRecipient() (gas: 98940)
+[PASS] test_T09_GuardianCannotExecute() (gas: 319572)
+[PASS] test_T10_GuardianSameCalldataAsUserIsRejected() (gas: 350227)
+[PASS] test_T11_UserUnavailable_GuardianRevokes_AgentBlocked() (gas: 603117)
+[PASS] test_T12_NewGrantWithIdenticalTermsDoesNotReviveRevokedId() (gas: 855969)
+[PASS] test_T13_AgentCannotGrant() (gas: 98911)
+[PASS] test_T13_AgentCannotRevoke() (gas: 468630)
+[PASS] test_T13_OutsiderCannotExecute() (gas: 319572)
+[PASS] test_T13_OutsiderCannotGrant() (gas: 100957)
+[PASS] test_T13_OutsiderCannotRevoke() (gas: 470609)
+[PASS] test_T13_UnknownIdIsRejected() (gas: 315406)
+[PASS] test_T13_UserCannotExecuteAgentDelegation() (gas: 317573)
+[PASS] test_T13_WrongAgentIsRejected() (gas: 319528)
+[PASS] test_T14_GuardianTwiceDuplicateRevokeIsRejected() (gas: 467919)
+[PASS] test_T14_UnknownIdRevokeByOutsiderIsNotFound() (gas: 332327)
+[PASS] test_T14_UnknownIdRevokeIsRejected() (gas: 332325)
+[PASS] test_T14_UserThenGuardianDuplicateRevokeIsRejected() (gas: 465839)
+[PASS] test_T15_SuccessfulGrantExecuteRevokeEachEmitTheirEvent() (gas: 353263)
+[PASS] test_T16_Constructor_RevertsOnZeroGuardian() (gas: 6831)
+[PASS] test_T16_Constructor_RevertsOnZeroUser() (gas: 6878)
+[PASS] test_T16_Constructor_RevertsWhenUserEqualsGuardian() (gas: 7037)
+[PASS] test_T16_RevertsOnZeroAgent() (gas: 98227)
+[PASS] test_T16_RevertsOnZeroMaxAmount() (gas: 100969)
+[PASS] test_T16_RevertsOnZeroRecipient() (gas: 98294)
+[PASS] test_T16_RevertsWhenAgentIsGuardian() (gas: 100963)
+[PASS] test_T16_RevertsWhenAgentIsUser() (gas: 99006)
+[PASS] test_T16_RevertsWhenExpiredAtCreation() (gas: 97126)
+[PASS] test_T16_RevertsWhenValidAfterEqualsValidUntil() (gas: 98956)
+[PASS] test_T16_RevertsWhenValidAfterIsAfterValidUntil() (gas: 99185)
+[PASS] test_T17_AmountWithinMaxButAboveBalanceIsRejected() (gas: 328777)
+[PASS] test_T17_T19_ExecutesDrainBalanceToZeroThenStop() (gas: 744528)
+[PASS] test_T17_ZeroAmountIsRejected() (gas: 324182)
+[PASS] test_T18_RevokingD1LeavesD2Executable() (gas: 813822)
+[PASS] test_T19_RepeatedValidExecutesSucceedWhileBalanceLasts() (gas: 484776)
+[PASS] test_T20_CompiledAbiMutatorsAreExactlyGrantExecuteRevoke() (gas: 1153541)
+Suite result: ok. 69 passed; 0 failed; 0 skipped; finished in 31.87ms (51.12ms CPU time)
+
+╭--------------------------------------+-----------------+--------+--------+--------+---------╮
+| src/DARTVault.sol:DARTVault Contract |                 |        |        |        |         |
++=============================================================================================+
+| Deployment Cost                      | Deployment Size |        |        |        |         |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+|                                    0 |            6172 |        |        |        |         |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+|                                      |                 |        |        |        |         |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| Function Name                        | Min             | Avg    | Median | Max    | # Calls |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| createDelegation                     |           23540 | 154167 | 187089 | 189889 |      69 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| delegations                          |           16587 |  16587 |  16587 |  16587 |       1 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| execute                              |           25204 |  36423 |  38256 |  44141 |      41 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| getDelegation                        |           17102 |  17102 |  17102 |  17102 |     154 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| guardian                             |             374 |    374 |    374 |    374 |      26 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| nextNonce                            |            2491 |   2491 |   2491 |   2491 |     158 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| revokeDelegation                     |           24707 |  28629 |  30296 |  30308 |      23 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| simulatedBalance                     |            2424 |   2424 |   2424 |   2424 |     167 |
+|--------------------------------------+-----------------+--------+--------+--------+---------|
+| user                                 |             396 |    396 |    396 |    396 |      26 |
+╰--------------------------------------+-----------------+--------+--------+--------+---------╯
+
+
+Ran 1 test suite in 42.74ms (31.87ms CPU time): 69 tests passed, 0 failed, 0 skipped (69 total tests)

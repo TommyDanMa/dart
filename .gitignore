@@ -1,3 +1,4 @@
+# macOS
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -5,3 +6,28 @@ Icon?
 ._*
 .Spotlight-V100
 .Trashes
+
+# Foundry build artifacts
+out/
+cache/
+cache_forge/
+
+# Broadcast/deploy artifacts (this prototype is not deployed)
+broadcast/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor noise
+.idea/
+.vscode/
