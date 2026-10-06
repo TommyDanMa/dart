@@ -161,4 +161,4 @@ The PDF in `docs/` is the earlier proposal *Distributed Ledger System for Managi
 
 ## Licensing
 
-This repository already contains `LICENSE` (GNU Affero GPL v3) from the 2025 whitepaper snapshot. `src/DARTVault.sol` carries `SPDX-License-Identifier: MIT`. Those two statements are not the same decision. No new repository-wide license was added here. Resolve the mismatch before making the repository public.
+The original files in this repository (prototype, tests, analysis, evidence, diagrams, and README) are licensed under the MIT License. See LICENSE. lib/forge-std remains MIT OR Apache-2.0. The whitepaper PDF in docs/ is a separate document: copyright Tomás Lázaro Danoni Mazurek, 2025; it is included for reference, not as MIT software.
