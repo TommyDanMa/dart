@@ -162,3 +162,32 @@ The PDF in `docs/` is the earlier proposal *Distributed Ledger System for Managi
 ## Licensing
 
 The original files in this repository (prototype, tests, analysis, evidence, diagrams, and README) are licensed under the MIT License. See LICENSE. lib/forge-std remains MIT OR Apache-2.0. The whitepaper PDF in docs/ is a separate document: copyright Tomás Lázaro Danoni Mazurek, 2025; it is included for reference, not as MIT software.
+
+## Origin, contributions, and assistance
+
+DART originated in a whitepaper Tommy authored in **summer 2025**, before it became
+school research. He later narrowed and developed the concept into the practical
+component of his mandatory Catalan Batxillerat Treball de Recerca. The current
+prototype name is **Delegated Authorization and Revocation Technology (DART)**;
+the original PDF retains its historical title and broader proposal.
+
+Tommy originated the concept, wrote the initial whitepaper, and designed the
+agent-permission approach. He used AI extensively during implementation, manually
+wrote some code, and studied and verified the implementation to understand and
+defend it as school research. The original AI tools and exact file-level division
+of code authorship are not fully recorded here. Codex assisted with November 2026
+historical and attribution documentation corrections. No additional collaborator
+role is asserted without evidence.
+
+For an executable grant → execute → guardian revoke → rejected execution sequence,
+run the existing Foundry sequence tests with their traces:
+
+```bash
+forge test --match-test test_T11_UserUnavailable_GuardianRevokes_AgentBlocked -vvvv
+```
+
+See `test/DARTVault.t.sol` for the specific sequence-test names. These local tests
+use synthetic identities and simulated value; they are observed evidence for the
+specified cases, not proof of universal security. Portfolio eligibility remains
+an interpretation question because the independent whitepaper preceded a prototype
+later developed as required school research.
