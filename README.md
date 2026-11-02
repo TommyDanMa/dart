@@ -165,8 +165,10 @@ The original files in this repository (prototype, tests, analysis, evidence, dia
 
 ## Origin, contributions, and assistance
 
-DART originated in a whitepaper Tommy authored in **summer 2025**, before it became
-school research. He later narrowed and developed the concept into the practical
+The DART concept arose around **June 2025** from a conversation about the risks
+of AI agents and the access they could receive. Tommy developed the idea in a
+whitepaper he authored in **summer 2025**, before it became school research.
+He later narrowed and developed the concept into the practical
 component of his mandatory Catalan Batxillerat Treball de Recerca. The current
 prototype name is **Delegated Authorization and Revocation Technology (DART)**;
 the original PDF retains its historical title and broader proposal.
